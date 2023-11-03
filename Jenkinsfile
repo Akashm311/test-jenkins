@@ -13,10 +13,10 @@ pipeline {
             steps {
                 // Build and publish the Docker image
                 script {
-                    def dockerImage = docker.build("my-python-app:${env.BUILD_NUMBER}")
-                    dockerImage.inside {
-                        // Run any additional setup or tests inside the container if needed
-                    }
+                    sh'''
+                    cd Documents/demo-jenkins
+                    docker build -t test:v2 .
+                    '''
                 }
             }
         }
