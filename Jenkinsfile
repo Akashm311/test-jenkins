@@ -26,7 +26,7 @@ pipeline {
             steps {
                 // Run the Docker container
                 script {
-                    def container = docker.image("my-python-app:${env.BUILD_NUMBER}").run("-d -p 8081:81")
+                    sh 'docker run -p 8084:80 test:v2'
                 }
             }
         }
